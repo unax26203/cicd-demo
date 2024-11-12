@@ -8,9 +8,11 @@ jobs:
 
 
     steps:
-      - name: Mostar mensaje
-        run: echo "Hola GH Actions"
       - name: Bajar codigo
         uses: actions/checkout@v4
       - name: Probar codigo
         run: python3 main.py
+      - name: Crear una imagen docker
+        run: docker build -t unax26203/holamundo .
+      - name: Probar contenedor
+        run: docker run unax26203/holamundo
